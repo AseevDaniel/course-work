@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Склоняем ФИО</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<style>
+    #all{
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    input{
+       opacity: 0;
+    }
+    .myinput{
+        max-width: 100%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 25px;
+    }
+
+    .myinput__label {
+        text-decoration: none;
+        cursor: pointer;
+        outline: none;
+        padding: 10px 30px;
+        margin: 10px 20px;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #fe6637;
+        border-radius: 8px;
+        font-family: 'Montserrat', sans-serif;
+        color: #fe6637;
+        transition: .2s ease-in-out;
+    }
+    .myinput__label:before {
+        content: "";
+        background: linear-gradient(90deg, rgba(255,255,255,.1), rgba(255,255,255,.5));
+        height: 70px;
+        width: 50px;
+        position: absolute;
+        pointer-events: none;
+        top: -8px;
+        left: -75px;
+        transform: skewX(-45deg);
+    }
+    .myinput__label:hover {
+        background: #fe6637;
+        color: #fff;
+    }
+    .myinput__label:hover:before {
+        left: 300px;
+        transition: .7s ease-in-out;
+    }
+    #output{
+        font-family: 'Montserrat', sans-serif;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .but{
+        display: flex;
+        justify-content: space-around;
+    }
+    button {
+        font-family: 'Montserrat', sans-serif;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        display: inline;
+        width: 220px;
+        height: 60px;
+        line-height: 45px;
+        border-radius: 45px;
+        border: 1px solid #fe6637;
+        margin: 80px 20px;
+        margin-bottom: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        text-align: center;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        color: #524f4e;
+        background: white;
+        box-shadow: 0 8px 15px rgba(0,0,0,.1);
+        transition: .3s;
+    }
+    button:hover {
+        background: #fe6637;
+        box-shadow: 0 15px 20px rgba(254,102,55,.4);
+        color: white;
+        transform: translateY(-7px);
+    }
+    @media (max-width: 600px){
+      #all{
+          width: 100%;
+        }
+      .myinput{
+          font-size: 18px;
+      }
+      button {
+          font-size: 12px;
+      }
+    }
+    @media (max-width: 480px){
+      #all{
+          width: 100%;
+        }
+      .myinput{
+          font-size: 15px;
+      }
+      .myinput__label {
+          padding: 10px 30px;
+          margin: 0;
+      }
+      button {
+        width: 180px;
+        height: 50px;
+        line-height: 45px;
+        border-radius: 45px;
+        border: 1px solid #fe6637;
+        margin: 50px 20px;
+          margin: 30px 10px;
+          font-size: 10px;
+      }
+    }
+</style>
+
+   <div id="all">
+
+       <input id="input" type='file' accept='text/plain' onchange='openFile(event)'><br>
+       <div class="myinput">
+           <label class="myinput__label" for="input">Загрузить файл</label>
+       </div>
+
+       <div class="but">
+           <button onclick="chanIm(text)">Именительный</button>
+           <button onclick="chanRod()">Родительный</button>
+           <button onclick="chanDat()">Дательный</button>
+       </div>
+       <br>
+       <div id='output'></div>
+   </div>
+
+   <script src="main.js"></script>
+</body>
+</html>
